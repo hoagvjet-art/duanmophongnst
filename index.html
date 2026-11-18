@@ -109,13 +109,44 @@
                 padding: 12px;
                 border-radius: 16px;
             }
-            #comparison-modal {
-                left: 8px !important;
-                right: 8px !important;
-                bottom: calc(48px + env(safe-area-inset-bottom)) !important;
-                max-height: 34dvh;
-                overflow-x: auto;
-            }
+        /* TỐI ƯU BẢNG NST Ở NGƯỜI TRÊN ĐIỆN THOẠI */
+#comparison-modal {
+    left: 8px !important;
+    right: 8px !important;
+
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+
+    max-height: 88dvh !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ảnh bộ NST tự co theo màn hình */
+#comparison-modal img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    max-height: 72dvh !important;
+
+    object-fit: contain;
+    object-position: center;
+
+    margin: 0 auto;
+}
+@media (orientation: landscape) {
+    #comparison-modal {
+        max-height: 88dvh !important;
+    }
+
+    #comparison-modal img {
+        max-height: 68dvh !important;
+    }
+}
             #comparison-modal table { min-width: 260px; }
             #callouts-container .callout-card {
                 max-width: 76px;
